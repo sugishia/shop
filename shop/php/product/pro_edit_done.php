@@ -7,6 +7,7 @@
  */
 require_once '../common_config.php';
 
+$pro_code = htmlspecialchars($_POST['code'], ENT_QUOTES, 'utf-8');
 $pro_name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'utf-8');
 $pro_price = htmlspecialchars($_POST['price'], ENT_QUOTES, 'utf-8');
 
@@ -15,10 +16,11 @@ try {
     $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $sql = 'INSERT INTO mst_product(name, price) VALUES (?, ?)';
+    $sql = 'UPDATE mst_product SET name = ?, price = ? WHERE code = ?';
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(1, $pro_name, PDO::PARAM_STR);
     $stmt->bindValue(2, $pro_price, PDO::PARAM_STR);
+    $stmt->bindValue(3, $pro_code, PDO::PARAM_STR);
     $stmt->execute();
 
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -42,9 +44,9 @@ try {
 <body>
 <div class="container">
     <div class="jumbotron h2">商品　登録・変更・削除</div>
-    <p class="page-header h3">商品登録</p>
-    <p><?=$pro_name?>を追加しました</p>
-    <button class="btn btn-default" onclick="location.href='./pro_list.php'">戻る</button>
+    <p class="page-header h3">商品 変更</p>
+    <p class="page-header"><?= $pro_name ?>のデータを修正しました。</p>
+    <button class="btn btn-primary" onclick="location.href='./pro_list.php'">戻る</button>
 </div>
 <script src="../../bootstrap_lib/jquery-3.2.1.min.js"></script>
 <script src="../../bootstrap_lib/bootstrap.min.js"></script>

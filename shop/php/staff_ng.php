@@ -1,3 +1,10 @@
+<?php
+if (empty($_GET['words'])) {
+    throw new Exception('不正なGETメソッドが送られました');
+}
+$words = htmlspecialchars($_GET['words'], ENT_QUOTES, 'utf-8');
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -8,11 +15,10 @@
 </head>
 <body>
 <div class="container">
-<div class="jumbotron">
-    <p class="h1">エラー！</p>
-    <p>スタッフが選択されていません。</p>
+    <div class="jumbotron h2 bg-danger">エラー通知</div>
+    <p class="page-header h3">エラー</p>
+    <p><?= $words ?></p>
     <button onclick="location.href='./staff_list.php'">戻る</button>
-</div>
 </div>
 </body>
 </html>
