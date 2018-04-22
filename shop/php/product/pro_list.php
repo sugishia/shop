@@ -30,7 +30,7 @@ try {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>スタッフ一覧</title>
+    <title>商品一覧</title>
     <link rel="stylesheet" href="../../bootstrap_lib/bootstrap.min.css">
 </head>
 <body>
@@ -38,7 +38,7 @@ try {
     <div class="jumbotron h2">商品　登録・変更・削除</div>
     <p class="page-header h3">商品一覧</p>
     <form method="post" action="./pro_branch.php">
-        <table class="table table-striped">
+        <table class="table table-striped text-center">
             <tr>
                 <th>チェック</th>
                 <th>商品名</th>

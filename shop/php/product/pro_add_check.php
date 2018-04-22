@@ -9,7 +9,7 @@ if ($pro_picture['size'] > 0) {
         header('Location:../staff_ng.php?words=' . $words);
         die();
     } else {
-        move_uploaded_file($pro_picture['tmp_name'], './picture/'.$pro_picture['name']);
+        move_uploaded_file($pro_picture['tmp_name'], './picture1/'.$pro_picture['name']);
     }
 }
 ?>
@@ -48,7 +48,7 @@ if ($pro_picture['size'] > 0) {
     <form action="./pro_add_done.php" method="post">
         <input type="hidden" name="name" value="<?= $pro_name ?>">
         <input type="hidden" name="price" value="<?= $pro_price ?>">
-        <input type="hidden" name="picture" value="<?= $pro_picture ?>">
+        <input type="hidden" name="picture" value="<?= $pro_picture['name'] ?>">
         <button class="btn btn-default" type="button" onclick="history.back()">戻る</button>
         <button class="btn btn-primary" type="submit">ＯＫ</button>
     </form>

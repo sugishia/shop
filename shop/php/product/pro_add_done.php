@@ -9,16 +9,19 @@ require_once '../common_config.php';
 
 $pro_name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'utf-8');
 $pro_price = htmlspecialchars($_POST['price'], ENT_QUOTES, 'utf-8');
+$pro_price = htmlspecialchars($_POST['price'], ENT_QUOTES, 'utf-8');
+$pro_picture = htmlspecialchars($_POST['picture'], ENT_QUOTES, 'utf-8');
 
 try {
     $dbh = new PDO($mysql, $user, $pass);
     $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $sql = 'INSERT INTO mst_product(name, price) VALUES (?, ?)';
+    $sql = 'INSERT INTO mst_product(name, price, picture) VALUES (?, ?, ?)';
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(1, $pro_name, PDO::PARAM_STR);
     $stmt->bindValue(2, $pro_price, PDO::PARAM_STR);
+    $stmt->bindValue(3, $pro_picture, PDO::PARAM_STR);
     $stmt->execute();
 
     $result = $stmt->fetch(PDO::FETCH_ASSOC);

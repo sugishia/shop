@@ -18,7 +18,7 @@ try {
     $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $sql = 'SELECT name, price FROM mst_product WHERE code = ?';
+    $sql = 'SELECT name, price, picture FROM mst_product WHERE code = ?';
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(1, $pro_code, PDO::PARAM_INT);
     $stmt->execute();
@@ -26,6 +26,11 @@ try {
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
     $pro_name = htmlspecialchars($result['name'], ENT_QUOTES, 'utf-8');
     $pro_price = htmlspecialchars($result['price'], ENT_QUOTES, 'utf-8');
+    $pro_picture = $result['picture'];
+
+    if($pro_picture === ''){
+        $pro_picture = 'default.png';
+    }
 
     $dbh = null;
 } catch (Exception $error) {
@@ -45,14 +50,15 @@ try {
 </head>
 <body>
 <div class="container">
-    <div class="jumbotron h2">販売員　登録・変更・削除</div>
-    <p class="page-header h3">スタッフ情報</p>
-    <table class="table table-striped">
+    <div class="jumbotron h2">商品　登録・変更・削除</div>
+    <p class="page-header h3">商品詳細情報</p>
+    <table class="table table-striped text-center">
         <thead>
         <tr>
             <th>商品コード</th>
             <th>商品</th>
             <th>価格</th>
+            <th>写真</th>
         </tr>
         </thead>
         <tbody>
@@ -60,6 +66,7 @@ try {
             <td><?= $pro_code ?></td>
             <td><?= $pro_name ?></td>
             <td><?= $pro_price ?></td>
+            <td><img style="border-radius: 50%; width: 40px; height: auto" src="./picture/<?= $pro_picture ?>"></td>
         </tr>
         </tbody>
     </table>
