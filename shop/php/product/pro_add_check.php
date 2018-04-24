@@ -9,8 +9,10 @@ if ($pro_picture['size'] > 0) {
         header('Location:../staff_ng.php?words=' . $words);
         die();
     } else {
-        move_uploaded_file($pro_picture['tmp_name'], './picture1/'.$pro_picture['name']);
+        move_uploaded_file($pro_picture['tmp_name'], './picture/'.$pro_picture['name']);
     }
+}else{
+    $pro_picture['name'] = 'default/default.png';
 }
 ?>
 

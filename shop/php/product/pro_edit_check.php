@@ -2,7 +2,24 @@
 $pro_code = htmlspecialchars($_POST['procode'], ENT_QUOTES, 'utf-8');
 $pro_name = htmlspecialchars($_POST['proname'], ENT_QUOTES, 'utf-8');
 $pro_price = htmlspecialchars($_POST['proprice'], ENT_QUOTES, 'utf-8');
-$pro_picture = htmlspecialchars($_FILES['propicture'], ENT_QUOTES, 'utf-8');
+$pro_old_picture = htmlspecialchars($_POST['pro_old_picture'], ENT_QUOTES, 'utf-8');
+$pro_new_picture = $_FILES['pro_new_picture'];
+#echo $pro_new_picture['name'];
+
+if($pro_new_picture['name'] === ''){
+    $pro_new_picture['name'] = 'default/default.png';
+}
+
+if ($pro_new_picture['size'] > 0) {
+    if ($pro_new_picture['size'] > 1000000) {
+        $word = 'ファイルサイズが大きすぎます。';
+        header('Location:../staff_ng.php?word=' . $word);
+        die();
+    } else {
+        move_uploaded_file($pro_new_picture['tmp_name'], './picture/'.$pro_new_picture['name']);
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -20,17 +37,27 @@ $pro_picture = htmlspecialchars($_FILES['propicture'], ENT_QUOTES, 'utf-8');
     <p>下記のように変更します</p>
     <table class="table table-striped">
         <thead>
-        <tr><th>商品名</th><th>金額</th><th>画像</th></tr>
+        <tr>
+            <th>商品名</th>
+            <th>金額</th>
+            <th>画像</th>
+        </tr>
         </thead>
         <tbody>
-        <tr><td><?= $pro_name ?></td><td><?= $pro_price ?></td><td><img src="./picture/<?= $pro_picture['name'] ?>"></td></tr>
+        <tr>
+            <td><?= $pro_name ?></td>
+            <td><?= $pro_price ?></td>
+            <td><img style="border-radius: 50%; width: 40px; height: auto;" src="./picture/<?= $pro_new_picture['name'] ?>"></td>
+        </tr>
         </tbody>
     </table>
     <form action="./pro_edit_done.php" method="post">
         <div>
-            <input type="hidden" name="code" value="<?=$pro_code?>">
-            <input type="hidden" name="name" value="<?=$pro_name?>">
-            <input type="hidden" name="price" value="<?=$pro_price?>">
+            <input type="hidden" name="code" value="<?= $pro_code ?>">
+            <input type="hidden" name="name" value="<?= $pro_name ?>">
+            <input type="hidden" name="price" value="<?= $pro_price ?>">
+            <input type="hidden" name="picture_old_name" value="<?= $pro_old_picture ?>">
+            <input type="hidden" name="picture_new_name" value="<?= $pro_new_picture['name'] ?>">
         </div>
         <button class="btn btn-default" type="button" onclick="history.back()">戻る</button>
         <button class="btn btn-primary" style="margin-left: 5px;" type="submit">ＯＫ</button>

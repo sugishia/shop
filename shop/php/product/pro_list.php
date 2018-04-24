@@ -39,16 +39,19 @@ try {
     <p class="page-header h3">商品一覧</p>
     <form method="post" action="./pro_branch.php">
         <table class="table table-striped text-center">
+            <thead>
             <tr>
-                <th>チェック</th>
-                <th>商品名</th>
+                <th class="text-center">チェック</th>
+                <th class="text-center">商品名</th>
             </tr>
+            </thead>
+
             <?php
             $i = 0;
             while ($result = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                if($i === 0){
+                if ($i === 0) {
                     echo '<tr><td><input type="radio" name="code" value="' . $result['code'] . '" checked></td><td>' . $result['name'] . '</td></tr>';
-                }else{
+                } else {
                     echo '<tr><td><input type="radio" name="code" value="' . $result['code'] . '"></td><td>' . $result['name'] . '</td></tr>';
                 }
                 $i++;

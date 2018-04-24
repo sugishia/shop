@@ -47,13 +47,21 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
     <link rel="stylesheet" href="../../bootstrap_lib/bootstrap.min.css">
+    <style>
+        #thead th{
+            text-align: center;
+        }
+        #tbody td{
+            vertical-align: middle;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
     <div class="jumbotron h2">商品　登録・変更・削除</div>
     <p class="page-header h3">商品詳細情報</p>
     <table class="table table-striped text-center">
-        <thead>
+        <thead id="thead">
         <tr>
             <th>商品コード</th>
             <th>商品</th>
@@ -61,7 +69,7 @@ try {
             <th>写真</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody id="tbody">
         <tr>
             <td><?= $pro_code ?></td>
             <td><?= $pro_name ?></td>

@@ -24,7 +24,13 @@ try {
     $stmt->execute();
 
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    $pro_name = $result['name'];
+    $pro_price = $result['price'];
+    $pro_old_picture = $result['picture'];
+    #echo $pro_old_picture;
     $dbh = null;
+
 } catch (Exception $error) {
     echo '<h1 class="page-header">ただいま障害により大変ご迷惑をおかけしております。</h1>';
     echo htmlspecialchars($error->getMessage(), ENT_QUOTES, 'utf-8');
@@ -44,8 +50,9 @@ try {
 <div class="container">
     <div class="jumbotron h2">商品　登録・変更・削除</div>
     <p class="page-header h3">商品 登録変更</p>
-    <form action="./pro_edit_check.php" method="post">
+    <form action="./pro_edit_check.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="procode" value="<?= $pro_code ?>">
+        <input type="hidden" name="pro_old_picture" value="<?= $pro_old_picture ?>">
         <div class="form-group">
             <label for="name">商品名入力</label>
             <input class="form-control" type="text" name="proname" value="<?= $result['name'] ?>" required>
@@ -56,7 +63,8 @@ try {
         </div>
         <div class="form-group">
             <label for="staff_pass1">画像入力</label>
-            <input class="form-control" type="file" name="propicture" value="<?= $result['picture'] ?>">
+            <img style="border-radius: 50%; width: 40px; height: auto;" src="./picture/<?= $pro_old_picture ?>">
+            <input class="form-control" type="file" name="pro_new_picture" value="<?= $result['picture'] ?>">
         </div>
         <button class="btn btn-primary" type="button" onclick="history.back();">戻る</button>
         <button class="btn btn-default" type="submit">ＯＫ</button>

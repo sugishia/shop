@@ -9,7 +9,6 @@ require_once '../common_config.php';
 
 $pro_name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'utf-8');
 $pro_price = htmlspecialchars($_POST['price'], ENT_QUOTES, 'utf-8');
-$pro_price = htmlspecialchars($_POST['price'], ENT_QUOTES, 'utf-8');
 $pro_picture = htmlspecialchars($_POST['picture'], ENT_QUOTES, 'utf-8');
 
 try {
