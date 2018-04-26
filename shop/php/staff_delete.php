@@ -5,6 +5,15 @@
  * Date: 2018/04/20
  * Time: 13:24
  */
+session_start();
+session_regenerate_id(true);
+
+if(isset($_SESSION['login']) == false){
+    $words = 'ログインされていません';
+    header('Location:./staff_ng.php?words='.$words);
+    die();
+}
+
 require_once 'common_config.php';
 
 try {
@@ -42,6 +51,7 @@ try {
 </head>
 <body>
 <div class="container">
+    <span class="bg-success right" style="float: right; font-weight: bold;"><?= $_SESSION['name'] ?>さん ログイン中</span>
     <div class="jumbotron h2">販売員　登録・変更・削除</div>
     <p class="page-header h3">スタッフ削除</p>
 
@@ -52,8 +62,8 @@ try {
     <p>このスタッフを削除してよろしいですか？</p>
     <form action="./staff_delete_done.php" method="post">
         <input type="hidden" name="staff_id" value="<?= $staff_code ?>">
-        <button class="btn-default" type="button" onclick="history.back();">戻る</button>
-        <button class="btn-primary" type="submit">ＯＫ</button>
+        <button class="btn btn-default" type="button" onclick="history.back();">戻る</button>
+        <button class="btn btn-primary" type="submit">ＯＫ</button>
         <!--<input type="submit" value="ＯＫ">-->
     </form>
 </div>

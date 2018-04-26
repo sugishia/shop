@@ -5,6 +5,15 @@
  * Date: 2018/04/20
  * Time: 0:34
  */
+session_start();
+session_regenerate_id(true);
+
+if(isset($_SESSION['login']) == false){
+    $words = 'ログインされていません';
+    header('Location:../staff_ng.php?words='.$words);
+    die();
+}
+
 require_once '../common_config.php';
 
 $pro_name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'utf-8');
@@ -43,6 +52,7 @@ try {
 </head>
 <body>
 <div class="container">
+    <span class="bg-success right" style="float: right; font-weight: bold;"><?= $_SESSION['name'] ?>さん ログイン中</span>
     <div class="jumbotron h2">商品　登録・変更・削除</div>
     <p class="page-header h3">商品登録</p>
     <p><?=$pro_name?>を追加しました</p>

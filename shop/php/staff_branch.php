@@ -5,6 +5,14 @@
  * Date: 2018/04/20
  * Time: 22:14
  */
+session_start();
+session_regenerate_id(true);
+
+if(isset($_SESSION['login']) == false){
+    $words = 'ログインされていません';
+    header('Location:./staff_ng.php?words='.$words);
+    die();
+}
 
 $staff_code = $_POST['staffcode'];
 

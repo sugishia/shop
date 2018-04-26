@@ -5,6 +5,15 @@
  * Date: 2018/04/20
  * Time: 0:34
  */
+session_start();
+session_regenerate_id(true);
+
+if (isset($_SESSION['login']) == false) {
+    $words = 'ログインされていません';
+    header('Location:./staff_ng.php?words=' . $words);
+    die();
+}
+
 require_once './common_config.php';
 
 $staff_name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'utf-8');
@@ -41,9 +50,10 @@ try {
 </head>
 <body>
 <div class="container">
+    <span class="bg-success right" style="float: right; font-weight: bold;"><?= $_SESSION['name'] ?>さん ログイン中</span>
     <div class="jumbotron h2">販売員　登録・変更・削除</div>
     <p class="page-header h3">スタッフ登録</p>
-    <p><?=$staff_name?>さんを追加しました</p>
+    <p><?= $staff_name ?>さんを追加しました</p>
     <button class="btn-default" onclick="location.href='./staff_list.php'"></button>
 </div>
 <script src="../bootstrap_lib/jquery-3.2.1.min.js"></script>

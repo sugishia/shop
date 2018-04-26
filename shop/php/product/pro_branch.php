@@ -1,4 +1,13 @@
 <?php
+session_start();
+session_regenerate_id(true);
+
+if(isset($_SESSION['login']) == false){
+    $words = 'ログインされていません';
+    header('Location:../staff_ng.php?words='.$words);
+    die();
+}
+
 /**
  * Created by PhpStorm.
  * User: xta-u

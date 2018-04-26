@@ -5,6 +5,15 @@
  * Date: 2018/04/20
  * Time: 13:24
  */
+session_start();
+session_regenerate_id(true);
+
+if(isset($_SESSION['login']) == false){
+    $words = 'ログインされていません';
+    header('Location:./staff_ng.php?words='.$words);
+    die();
+}
+
 require_once 'common_config.php';
 
 try {
@@ -37,11 +46,12 @@ try {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
+    <title>スタッフ登録変更</title>
     <link rel="stylesheet" href="../bootstrap_lib/bootstrap.min.css">
 </head>
 <body>
 <div class="container">
+    <span class="bg-success right" style="float: right; font-weight: bold;"><?= $_SESSION['name'] ?>さん ログイン中</span>
     <div class="jumbotron h2">販売員　登録・変更・削除</div>
     <p class="page-header h3">スタッフ 登録変更</p>
     <form action="./staff_edit_check.php" method="post">
@@ -58,8 +68,8 @@ try {
             <label for="staff_pass2">パスワード入力（確認用）</label>
             <input class="form-control" type="password" name="staff_pass2">
         </div>
-        <button class="btn-primary" type="button" onclick="history.back();">戻る</button>
-        <button class="btn-default" type="submit">ＯＫ</button>
+        <button class="btn btn-primary" type="button" onclick="history.back();">戻る</button>
+        <button class="btn btn-default" type="submit">ＯＫ</button>
         <!--<input type="submit" value="ＯＫ">-->
     </form>
 </div>

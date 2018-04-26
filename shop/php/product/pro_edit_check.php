@@ -1,15 +1,24 @@
 <?php
+session_start();
+session_regenerate_id(true);
+
+if(isset($_SESSION['login']) == false){
+    $words = 'ログインされていません';
+    header('Location:../staff_ng.php?words='.$words);
+    die();
+}
+
 $pro_code = htmlspecialchars($_POST['procode'], ENT_QUOTES, 'utf-8');
 $pro_name = htmlspecialchars($_POST['proname'], ENT_QUOTES, 'utf-8');
 $pro_price = htmlspecialchars($_POST['proprice'], ENT_QUOTES, 'utf-8');
 $pro_old_picture = htmlspecialchars($_POST['pro_old_picture'], ENT_QUOTES, 'utf-8');
 $pro_new_picture = $_FILES['pro_new_picture'];
 #echo $pro_new_picture['name'];
-
+/*
 if($pro_new_picture['name'] === ''){
     $pro_new_picture['name'] = 'default/default.png';
 }
-
+*/
 if ($pro_new_picture['size'] > 0) {
     if ($pro_new_picture['size'] > 1000000) {
         $word = 'ファイルサイズが大きすぎます。';
@@ -18,6 +27,8 @@ if ($pro_new_picture['size'] > 0) {
     } else {
         move_uploaded_file($pro_new_picture['tmp_name'], './picture/'.$pro_new_picture['name']);
     }
+}else{
+    $pro_new_picture['name'] = $pro_old_picture;
 }
 
 ?>
@@ -32,6 +43,7 @@ if ($pro_new_picture['size'] > 0) {
 </head>
 <body>
 <div class="container">
+    <span class="bg-success right" style="float: right; font-weight: bold;"><?= $_SESSION['name'] ?>さん ログイン中</span>
     <div class="jumbotron h2">商品　登録・変更・削除</div>
     <p class="page-header h3">商品 変更内容確認</p>
     <p>下記のように変更します</p>

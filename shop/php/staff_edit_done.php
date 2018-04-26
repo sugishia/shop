@@ -5,6 +5,15 @@
  * Date: 2018/04/20
  * Time: 0:34
  */
+session_start();
+session_regenerate_id(true);
+
+if (isset($_SESSION['login']) == false) {
+    $words = 'ログインされていません';
+    header('Location:./staff_ng.php?words=' . $words);
+    die();
+}
+
 require_once './common_config.php';
 
 $staff_code = htmlspecialchars($_POST['code'], ENT_QUOTES, 'utf-8');
@@ -43,6 +52,7 @@ try {
 </head>
 <body>
 <div class="container">
+    <span class="bg-success right" style="float: right; font-weight: bold;"><?= $_SESSION['name'] ?>さん ログイン中</span>
     <p class="page-header"><?= $staff_name ?>さんのデータを修正しました。</p>
     <button class="btn-primary" onclick="location.href='./staff_list.php'">戻る</button>
 </div>

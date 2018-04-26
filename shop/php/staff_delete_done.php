@@ -5,10 +5,19 @@
  * Date: 2018/04/20
  * Time: 0:34
  */
+session_start();
+session_regenerate_id(true);
+
+if(isset($_SESSION['login']) == false){
+    $words = 'ログインされていません';
+    header('Location:./staff_ng.php?words='.$words);
+    die();
+}
+
 require_once './common_config.php';
 
 $staff_code = htmlspecialchars($_POST['staff_id'], ENT_QUOTES, 'utf-8');
-echo $staff_code;
+#echo $staff_code;
 try {
     $dbh = new PDO($mysql, $user, $pass);
     $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
@@ -38,10 +47,11 @@ try {
 </head>
 <body>
 <div class="container">
+    <span class="bg-success right" style="float: right; font-weight: bold;"><?= $_SESSION['name'] ?>さん ログイン中</span>
     <div class="jumbotron h2">販売員　登録・変更・削除</div>
     <p class="page-header h3">スタッフ削除</p>
     <p>データを削除しました。</p>
-    <button class="btn-primary" onclick="location.href='./staff_list.php'">戻る</button>
+    <button class="btn-primary btn" onclick="location.href='./staff_list.php'">戻る</button>
 </div>
 <script src="../bootstrap_lib/jquery-3.2.1.min.js"></script>
 <script src="../bootstrap_lib/bootstrap.min.js"></script>

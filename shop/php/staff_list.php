@@ -5,6 +5,15 @@
  * Date: 2018/04/20
  * Time: 2:21
  */
+session_start();
+session_regenerate_id(true);
+
+if (isset($_SESSION['login']) == false) {
+    $words = 'ログインされていません';
+    header('Location:./staff_ng.php?words=' . $words);
+    die();
+}
+
 require_once './common_config.php';
 
 try {
@@ -35,17 +44,24 @@ try {
 </head>
 <body>
 <div class="container">
+    <span class="bg-success right" style="float: right; font-weight: bold;"><?= $_SESSION['name'] ?>さん ログイン中</span>
     <div class="jumbotron h2">販売員　登録・変更・削除</div>
     <p class="page-header h3">スタッフ一覧</p>
     <form method="post" action="./staff_branch.php">
-        <table class="table table-striped">
+        <table class="table table-striped" style="table-layout: fixed; text-align: center;">
             <tr>
-                <th>チェック</th>
-                <th>名　前</th>
+                <th style="text-align: center">チェック</th>
+                <th style="text-align: center">名　前</th>
             </tr>
             <?php
+            $i = 0;
             while ($result = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo '<tr><td><input type="radio" name="staffcode" value="' . $result['code'] . '"></td><td>' . $result['name'] . '</td></tr>';
+                if ($i === 0) {
+                    echo '<tr><td><input type="radio" name="staffcode" value="' . $result['code'] . '" checked></td><td>' . $result['name'] . '</td></tr>';
+                } else {
+                    echo '<tr><td><input type="radio" name="staffcode" value="' . $result['code'] . '"></td><td>' . $result['name'] . '</td></tr>';
+                }
+                $i++;
             }
             ?>
         </table>
@@ -54,6 +70,10 @@ try {
         <button class="btn btn-success" type="submit" name="edit" value="edit">修正</button>
         <button class="btn btn-danger" type="submit" name="delete" value="delete">削除</button>
     </form>
+
+    <button class="btn btn-info" style="width: 100%; margin-top: 2%;" type="button"
+            onclick="location.href='./staff_login/staff_top.php'">トップメニューへ
+    </button>
 </div>
 <script src="../bootstrap_lib/jquery-3.2.1.min.js"></script>
 <script src="../bootstrap_lib/bootstrap.min.js"></script>

@@ -1,4 +1,13 @@
 <?php
+session_start();
+session_regenerate_id(true);
+
+if(isset($_SESSION['login']) == false){
+    $words = 'ログインされていません';
+    header('Location:../staff_ng.php?words='.$words);
+    die();
+}
+
 $pro_name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'utf-8');
 $pro_price = htmlspecialchars($_POST['price'], ENT_QUOTES, 'utf-8');
 $pro_picture = $_FILES['picture'];
@@ -26,11 +35,12 @@ if ($pro_picture['size'] > 0) {
 </head>
 <body>
 <div class="container">
+    <span class="bg-success right" style="float: right; font-weight: bold;"><?= $_SESSION['name'] ?>さん ログイン中</span>
     <div class="jumbotron h2">商品管理　登録・変更・削除</div>
     <p class="page-header h3">商品追加</p>
     <p>下記の商品を登録します</p>
 
-    <table class="table table-striped text-center">
+    <table style="table-layout: fixed" class="table table-striped text-center">
         <thead>
         <tr>
             <th>商品名</th>

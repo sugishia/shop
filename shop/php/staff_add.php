@@ -1,3 +1,14 @@
+<?php
+session_start();
+session_regenerate_id(true);
+
+if(isset($_SESSION['login']) == false){
+    $words = 'ログインされていません';
+    header('Location:./staff_ng.php?words='.$words);
+    die();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -8,6 +19,7 @@
 </head>
 <body>
     <div class="container">
+        <span class="bg-success right" style="float: right; font-weight: bold;"><?= $_SESSION['name'] ?>さん ログイン中</span>
         <div class="jumbotron h2">販売員　登録・変更・削除</div>
         <p class="page-header h3">スタッフ追加</p>
         <form action="./staff_add_check.php" method="post">
@@ -24,8 +36,8 @@
                 <input type="password" name="password2" class="form-control" required>
             </div>
             <div style="text-align: right">
-                <input type="button" onclick="history.back();" value="戻る">
-                <input type="submit" value="OK">
+                <input class="btn btn-default" type="button" onclick="history.back();" value="戻る">
+                <input class="btn btn-primary" type="submit" value="OK">
             </div>
         </form>
     </div>

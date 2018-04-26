@@ -5,10 +5,19 @@
  * Date: 2018/04/21
  * Time: 2:48
  */
+session_start();
+session_regenerate_id(true);
+
+if (isset($_SESSION['login']) == false) {
+    $words = 'ログインされていません';
+    header('Location:./staff_ng.php?words=' . $words);
+    die();
+}
+
 require_once 'common_config.php';
 
-try{
-    if(empty($_GET['staffcode'])){
+try {
+    if (empty($_GET['staffcode'])) {
         throw new Exception('不正なＩＤです。');
     }
 
@@ -27,7 +36,7 @@ try{
     $staff_name = $result['name'];
 
     $dbh = null;
-}catch (Exception $error){
+} catch (Exception $error) {
     echo 'ただいま障害により大変ご迷惑をおかけしております。<br>';
     echo htmlspecialchars($error->getMessage(), ENT_QUOTES, 'utf-8');
     die();
@@ -44,13 +53,20 @@ try{
 </head>
 <body>
 <div class="container">
+    <span class="bg-success right" style="float: right; font-weight: bold;"><?= $_SESSION['name'] ?>さん ログイン中</span>
     <div class="jumbotron h2">販売員　登録・変更・削除</div>
     <p class="page-header h3">スタッフ情報</p>
-    <table class="table table-striped">
-        <tr><th>スタッフコード</th><th>名　前</th></tr>
-        <tr><td><?=$staff_code?></td><td><?=$staff_name?></td></tr>
+    <table class="table table-striped" style="text-align: center; table-layout: fixed;">
+        <tr>
+            <th style="text-align: center">スタッフコード</th>
+            <th style="text-align: center">名　前</th>
+        </tr>
+        <tr>
+            <td><?= $staff_code ?></td>
+            <td><?= $staff_name ?></td>
+        </tr>
     </table>
-    <button class="btn-primary" onclick="location.href='./staff_list.php'">戻る</button>
+    <button class="btn btn-primary" onclick="location.href='./staff_list.php'">戻る</button>
 </div>
 </body>
 </html>

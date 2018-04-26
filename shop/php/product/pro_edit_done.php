@@ -5,6 +5,15 @@
  * Date: 2018/04/20
  * Time: 0:34
  */
+session_start();
+session_regenerate_id(true);
+
+if(isset($_SESSION['login']) == false){
+    $words = 'ログインされていません';
+    header('Location:../staff_ng.php?words='.$words);
+    die();
+}
+
 require_once '../common_config.php';
 
 $pro_code = htmlspecialchars($_POST['code'], ENT_QUOTES, 'utf-8');
@@ -12,7 +21,7 @@ $pro_name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'utf-8');
 $pro_price = htmlspecialchars($_POST['price'], ENT_QUOTES, 'utf-8');
 $pro_picture_old_name = htmlspecialchars($_POST['picture_old_name'], ENT_QUOTES, 'utf-8');
 $pro_picture_new_name = htmlspecialchars($_POST['picture_new_name'], ENT_QUOTES, 'utf-8');
-echo $pro_picture_old_name;
+#echo $pro_picture_old_name;
 
 try {
     $dbh = new PDO($mysql, $user, $pass);
@@ -29,6 +38,10 @@ try {
 
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
     $dbh = null;
+
+    if($pro_picture_old_name !== $pro_picture_new_name){
+        unlink('./picture/' . $pro_picture_old_name);
+    }
 
 } catch (Exception $error) {
     echo 'ただいま障害により大変ご迷惑をおかけしております。<br>';
@@ -47,6 +60,7 @@ try {
 </head>
 <body>
 <div class="container">
+    <span class="bg-success right" style="float: right; font-weight: bold;"><?= $_SESSION['name'] ?>さん ログイン中</span>
     <div class="jumbotron h2">商品　登録・変更・削除</div>
     <p class="page-header h3">商品 変更</p>
     <p class="page-header"><?= $pro_name ?>のデータを修正しました。</p>

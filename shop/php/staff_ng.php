@@ -18,7 +18,7 @@ $words = htmlspecialchars($_GET['words'], ENT_QUOTES, 'utf-8');
     <div class="jumbotron h2 bg-danger">エラー通知</div>
     <p class="page-header h3">エラー</p>
     <p><?= $words ?></p>
-    <button onclick="location.href='./staff_list.php'">戻る</button>
+    <button class="btn btn-default" onclick="location.href='./staff_login/staff_login.html'">戻る</button>
 </div>
 </body>
 </html>

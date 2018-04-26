@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>スタッフ　ログイン</title>
+    <link rel="stylesheet" href="../../bootstrap_lib/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron h2">スタッフ　ログイン</div>
+    <p class="page-header h3">ログイン画面</p>
+    <form action="./staff_login_check.php" method="post">
+        <div class="form-group">
+            <label for="code">スタッフコード</label>
+            <input class="form-control" type="text" name="code" required>
+        </div>
+        <div class="form-group">
+            <label for="pass">パスワード</label>
+            <input class="form-control" type="password" name="pass" required>
+        </div>
+        <button class="btn btn-primary" type="submit">ＯＫ</button>
+    </form>
+</div>
+</body>
+</html>
