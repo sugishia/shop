@@ -55,7 +55,7 @@ try {
     <div class="jumbotron h2">販売員　登録・変更・削除</div>
     <p class="page-header h3">スタッフ 登録変更</p>
     <form action="./staff_edit_check.php" method="post">
-        <input type="hidden" name="staff_id" value="<?= $code ?>">
+        <input type="hidden" name="staff_code" value="<?= $code ?>">
         <div class="form-group">
             <label for="name">スタッフ名入力</label>
             <input class="form-control" type="text" name="staff_name" value="<?= $result['name'] ?>">

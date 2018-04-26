@@ -16,9 +16,10 @@ if(isset($_SESSION['login']) == false){
 
 require_once '../common_config.php';
 
-$pro_name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'utf-8');
-$pro_price = htmlspecialchars($_POST['price'], ENT_QUOTES, 'utf-8');
-$pro_picture = htmlspecialchars($_POST['picture'], ENT_QUOTES, 'utf-8');
+$post = sanitize($_POST);
+$pro_name = $post['name'];
+$pro_price = $post['price'];
+$pro_picture = $post['picture'];
 
 try {
     $dbh = new PDO($mysql, $user, $pass);

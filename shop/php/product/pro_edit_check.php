@@ -1,4 +1,6 @@
 <?php
+require_once '../common_config.php';
+
 session_start();
 session_regenerate_id(true);
 
@@ -8,10 +10,12 @@ if(isset($_SESSION['login']) == false){
     die();
 }
 
-$pro_code = htmlspecialchars($_POST['procode'], ENT_QUOTES, 'utf-8');
-$pro_name = htmlspecialchars($_POST['proname'], ENT_QUOTES, 'utf-8');
-$pro_price = htmlspecialchars($_POST['proprice'], ENT_QUOTES, 'utf-8');
-$pro_old_picture = htmlspecialchars($_POST['pro_old_picture'], ENT_QUOTES, 'utf-8');
+$post = sanitize($_POST);
+$pro_code = $post['procode'];
+$pro_name = $post['proname'];
+$pro_price = $post['proprice'];
+$pro_old_picture = $post['pro_old_picture'];
+
 $pro_new_picture = $_FILES['pro_new_picture'];
 #echo $pro_new_picture['name'];
 /*

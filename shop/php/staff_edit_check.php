@@ -1,3 +1,24 @@
+<?php
+require_once './common_config.php';
+
+session_start();
+session_regenerate_id(true);
+
+if (isset($_SESSION['login']) == false) {
+    $words = 'ログインされていません';
+    header('Location:./staff_ng.php?words=' . $words);
+    die();
+}
+
+$post = sanitize($_POST);
+$staff_code = $post['staff_code'];
+$staff_name = $post['staff_name'];
+$staff_pass1 = $post['staff_pass1'];
+$staff_pass2 = $post['staff_pass2'];
+
+$judge = true;
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -9,36 +30,15 @@
 <body>
 <div class="container">
     <span class="bg-success right" style="float: right; font-weight: bold;"><?= $_SESSION['name'] ?>さん ログイン中</span>
+    <div class="jumbotron h2">販売員　登録・変更・削除</div>
     <h2 class="page-header">編集確認</h2>
 
     <?php
-    session_start();
-    session_regenerate_id(true);
-
-    if (isset($_SESSION['login']) == false) {
-        $words = 'ログインされていません';
-        header('Location:./staff_ng.php?words=' . $words);
-        die();
-    }
-
-    $staff_code = htmlspecialchars($_POST['staff_id'], ENT_QUOTES, 'utf-8');
-    $staff_name = htmlspecialchars($_POST['staff_name'], ENT_QUOTES, 'utf-8');
-    $staff_pass1 = htmlspecialchars($_POST['staff_pass1'], ENT_QUOTES, 'utf-8');
-    $staff_pass2 = htmlspecialchars($_POST['staff_pass2'], ENT_QUOTES, 'utf-8');
-
-    $judge = true;
-
-
     if (empty($staff_name)) {
         echo 'スタッフ名が入力されていません';
         $judge = false;
     } else {
         echo '<p>スタッフ名：　' . $staff_name . '</p>';
-    }
-
-    if (empty($staff_pass1)) {
-        echo 'パスワードが入力されていません';
-        $judge = false;
     }
 
     if ($staff_pass1 !== $staff_pass2) {
@@ -57,8 +57,8 @@
         echo '<div><input type="hidden" name="code" value="' . $staff_code . '">';
         echo '<input type="hidden" name="name" value="' . $staff_name . '">';
         echo '<input type="hidden" name="password1" value="' . $staff_pass1 . '"></div>';
-        echo '<button class="btn-default" type="button" onclick="history.back()">戻る</button>';
-        echo '<button class="btn-primary" style="margin-left: 5px;" type="submit">ＯＫ</button>';
+        echo '<button class="btn btn-default" type="button" onclick="history.back()">戻る</button>';
+        echo '<button class="btn btn-primary" style="margin-left: 5px;" type="submit">ＯＫ</button>';
         echo '</form>';
     }
 

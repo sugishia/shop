@@ -16,9 +16,10 @@ if (isset($_SESSION['login']) == false) {
 
 require_once './common_config.php';
 
-$staff_code = htmlspecialchars($_POST['code'], ENT_QUOTES, 'utf-8');
-$staff_name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'utf-8');
-$staff_pass = htmlspecialchars($_POST['password1'], ENT_QUOTES, 'utf-8');
+$post = sanitize($_POST);
+$staff_code = $post['code'];
+$staff_name = $post['name'];
+$staff_pass = $post['password1'];
 
 try {
     $dbh = new PDO($mysql, $user, $pass);

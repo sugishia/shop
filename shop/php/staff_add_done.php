@@ -16,8 +16,10 @@ if (isset($_SESSION['login']) == false) {
 
 require_once './common_config.php';
 
-$staff_name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'utf-8');
-$staff_pass = htmlspecialchars($_POST['password1'], ENT_QUOTES, 'utf-8');
+$post = sanitize($_POST);
+$staff_name = $post['name'];
+$staff_pass = $post['password1'];
+
 
 try {
     $dbh = new PDO($mysql, $user, $pass);
@@ -54,7 +56,7 @@ try {
     <div class="jumbotron h2">販売員　登録・変更・削除</div>
     <p class="page-header h3">スタッフ登録</p>
     <p><?= $staff_name ?>さんを追加しました</p>
-    <button class="btn-default" onclick="location.href='./staff_list.php'"></button>
+    <button class="btn btn-default" onclick="location.href='./staff_list.php'">戻る</button>
 </div>
 <script src="../bootstrap_lib/jquery-3.2.1.min.js"></script>
 <script src="../bootstrap_lib/bootstrap.min.js"></script>

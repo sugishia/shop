@@ -8,8 +8,9 @@
 </head>
 <body>
 <div class="container">
-    <span class="bg-success right" style="float: right; font-weight: bold;"><?= $_SESSION['name'] ?>さん ログイン中</span>
+
     <?php
+
     session_start();
     session_regenerate_id(true);
 
@@ -19,9 +20,12 @@
         die();
     }
 
-    $staff_name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'utf-8');
-    $staff_pass1 = htmlspecialchars($_POST['password1'], ENT_QUOTES, 'utf-8');
-    $staff_pass2 = htmlspecialchars($_POST['password2'], ENT_QUOTES, 'utf-8');
+    require_once './common_config.php';
+
+    $post = sanitize($_POST);
+    $staff_name = $post['name'];
+    $staff_pass1 = $post['password1'];
+    $staff_pass2 = $post['password2'];
 
     $judge = true;
 
@@ -33,11 +37,6 @@
         echo 'スタッフ名：　' . $staff_name . '<br>';
     }
 
-    if (empty($staff_pass1)) {
-        echo 'パスワードが入力されていません';
-        $judge = false;
-    }
-
     if ($staff_pass1 !== $staff_pass2) {
         echo 'パスワードが一致しません';
         $judge = false;
@@ -45,7 +44,7 @@
 
     if ($judge === false) {
         echo '<form>';
-        echo '<input type="button" onclick="history.back();" value="戻る">';
+        echo '<input class="btn btn-danger" type="button" onclick="history.back();" value="戻る">';
         echo '</form>';
     } else {
         # ↓↓↓　$staff_pass1の変数を暗号化：md5暗号化規格！！　↓↓↓
@@ -59,7 +58,7 @@
     }
 
     ?>
-
+    <span class="bg-success right" style="float: right; font-weight: bold;"><?= $_SESSION['name'] ?>さん ログイン中</span>
 </div>
 <script src="../bootstrap_lib/jquery-3.2.1.min.js"></script>
 <script src="../bootstrap_lib/bootstrap.min.js"></script>

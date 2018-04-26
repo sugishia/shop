@@ -16,11 +16,12 @@ if(isset($_SESSION['login']) == false){
 
 require_once '../common_config.php';
 
-$pro_code = htmlspecialchars($_POST['code'], ENT_QUOTES, 'utf-8');
-$pro_name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'utf-8');
-$pro_price = htmlspecialchars($_POST['price'], ENT_QUOTES, 'utf-8');
-$pro_picture_old_name = htmlspecialchars($_POST['picture_old_name'], ENT_QUOTES, 'utf-8');
-$pro_picture_new_name = htmlspecialchars($_POST['picture_new_name'], ENT_QUOTES, 'utf-8');
+$post = sanitize($_POST);
+$pro_code = $post['code'];
+$pro_name = $post['name'];
+$pro_price = $post['price'];
+$pro_picture_old_name = $post['picture_old_name'];
+$pro_picture_new_name = $post['picture_new_name'];
 #echo $pro_picture_old_name;
 
 try {

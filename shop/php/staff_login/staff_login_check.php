@@ -28,7 +28,7 @@ try{
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
     if($result == false){
         $word = 'スタッフコードかパスワードが間違ってます。';
-        header('Location:../staff_ng.php?' . $word);
+        header('Location:../staff_ng.php?words=' . $word);
         die();
     }else{
         session_start();

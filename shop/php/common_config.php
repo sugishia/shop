@@ -16,3 +16,10 @@ $mysql = 'mysql:host=mysql715.db.sakura.ne.jp;dbname=sugishia_shop;charset=utf8'
 $user = 'user';
 $pass = '4179love';
 $mysql = 'mysql:host=localhost;dbname=shop;charset=utf8';
+
+function sanitize($befor){
+    foreach ($befor as $key => $value) {
+        $after[$key] = htmlspecialchars($value, ENT_QUOTES, 'utf-8');
+    }
+    return $after;
+}

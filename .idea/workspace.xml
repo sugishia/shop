@@ -11,11 +11,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="staff_login_check.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="staff_add_check.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shop/php/staff_add_check.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="972">
+              <caret line="54" column="20" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="staff_add_done.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shop/php/staff_add_done.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="990">
+              <caret line="55" column="48" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="staff_edit_check.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shop/php/staff_edit_check.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="594">
+              <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+              <folding>
+                <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="staff_login_check.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/shop/php/staff_login/staff_login_check.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="83">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="497">
+              <caret line="30" column="47" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -29,29 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="staff_login.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/shop/php/staff_login/staff_login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="19" column="76" selection-start-line="19" selection-start-column="76" selection-end-line="19" selection-end-column="76" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="staff_top.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shop/php/staff_login/staff_top.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="27" column="154" lean-forward="true" selection-start-line="27" selection-start-column="154" selection-end-line="27" selection-end-column="154" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="staff_logout.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shop/php/staff_login/staff_logout.php">
+      <file leaf-file-name="common_config.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shop/php/common_config.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="288">
-              <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+              <caret line="21" column="64" selection-start-line="21" selection-start-column="64" selection-end-line="21" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -84,34 +96,36 @@
         <option value="$PROJECT_DIR$/db_config.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/shop/add_form.html" />
-        <option value="$PROJECT_DIR$/shop/php/common_config.php" />
         <option value="$PROJECT_DIR$/shop/php/product/pro_branch.php" />
         <option value="$PROJECT_DIR$/shop/php/product/pro_add.php" />
-        <option value="$PROJECT_DIR$/shop/php/product/pro_add_check.php" />
-        <option value="$PROJECT_DIR$/shop/php/product/pro_add_done.php" />
         <option value="$PROJECT_DIR$/shop/php/product/pro_delete.php" />
         <option value="$PROJECT_DIR$/shop/php/product/pro_delete_done.php" />
         <option value="$PROJECT_DIR$/shop/php/product/pro_disp.php" />
         <option value="$PROJECT_DIR$/shop/php/product/pro_edit.php" />
-        <option value="$PROJECT_DIR$/shop/php/product/pro_edit_check.php" />
-        <option value="$PROJECT_DIR$/shop/php/product/pro_edit_done.php" />
         <option value="$PROJECT_DIR$/shop/php/product/pro_list.php" />
         <option value="$PROJECT_DIR$/shop/php/staff_login/staff_top.php" />
         <option value="$PROJECT_DIR$/shop/php/staff_login/staff_logout.php" />
         <option value="$PROJECT_DIR$/shop/php/staff_add.php" />
-        <option value="$PROJECT_DIR$/shop/php/staff_add_check.php" />
-        <option value="$PROJECT_DIR$/shop/php/staff_add_done.php" />
         <option value="$PROJECT_DIR$/shop/php/staff_branch.php" />
         <option value="$PROJECT_DIR$/shop/php/staff_delete.php" />
         <option value="$PROJECT_DIR$/shop/php/staff_delete_done.php" />
         <option value="$PROJECT_DIR$/shop/php/staff_disp.php" />
-        <option value="$PROJECT_DIR$/shop/php/staff_edit.php" />
-        <option value="$PROJECT_DIR$/shop/php/staff_edit_check.php" />
-        <option value="$PROJECT_DIR$/shop/php/staff_edit_done.php" />
         <option value="$PROJECT_DIR$/shop/php/staff_list.php" />
         <option value="$PROJECT_DIR$/shop/php/staff_ng.php" />
-        <option value="$PROJECT_DIR$/shop/php/staff_login/staff_login_check.php" />
         <option value="$PROJECT_DIR$/shop/php/staff_login/staff_login.html" />
+        <option value="$PROJECT_DIR$/shop/php/asobi/shun.html" />
+        <option value="$PROJECT_DIR$/shop/php/asobi/shun.php" />
+        <option value="$PROJECT_DIR$/shop/php/staff_edit.php" />
+        <option value="$PROJECT_DIR$/shop/php/staff_edit_done.php" />
+        <option value="$PROJECT_DIR$/shop/php/product/pro_add_check.php" />
+        <option value="$PROJECT_DIR$/shop/php/product/pro_add_done.php" />
+        <option value="$PROJECT_DIR$/shop/php/product/pro_edit_check.php" />
+        <option value="$PROJECT_DIR$/shop/php/product/pro_edit_done.php" />
+        <option value="$PROJECT_DIR$/shop/php/common_config.php" />
+        <option value="$PROJECT_DIR$/shop/php/staff_add_check.php" />
+        <option value="$PROJECT_DIR$/shop/php/staff_add_done.php" />
+        <option value="$PROJECT_DIR$/shop/php/staff_edit_check.php" />
+        <option value="$PROJECT_DIR$/shop/php/staff_login/staff_login_check.php" />
       </list>
     </option>
   </component>
@@ -124,7 +138,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -136,7 +150,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -196,6 +209,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -244,16 +258,16 @@
       <workItem from="1524380613926" duration="23936000" />
       <workItem from="1524466729308" duration="1379000" />
       <workItem from="1524562996041" duration="18972000" />
-      <workItem from="1524645517115" duration="29671000" />
+      <workItem from="1524645517115" duration="38386000" />
+      <workItem from="1524766814141" duration="725000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="178268000" />
+    <option name="totallyTimeSpent" value="187708000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.13072917" />
       <window_info anchor="bottom" id="TODO" order="11" />
@@ -283,9 +297,23 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/form.html" />
-    <entry file="file://$PROJECT_DIR$/detail.php" />
-    <entry file="file://$PROJECT_DIR$/add.php" />
+    <entry file="file://$PROJECT_DIR$/shop/php/common_config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="21" column="64" selection-start-line="21" selection-start-column="64" selection-end-line="21" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/php/staff_edit_check.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/delete.php" />
     <entry file="file://$PROJECT_DIR$/edit.php" />
     <entry file="file://$PROJECT_DIR$/form.html" />
@@ -306,48 +334,7 @@
     <entry file="file://$PROJECT_DIR$/add.php" />
     <entry file="file://$PROJECT_DIR$/shop/staff_add.php" />
     <entry file="file://$PROJECT_DIR$/shop/bootstrap_lib/bootstrap.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/php/common_config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/php/product/pro_add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="119" selection-start-line="21" selection-start-column="119" selection-end-line="21" selection-end-column="119" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/php/product/pro_add_check.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="37" column="115" selection-start-line="37" selection-start-column="115" selection-end-line="37" selection-end-column="115" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/php/product/pro_add_done.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="54" column="115" selection-start-line="54" selection-start-column="115" selection-end-line="54" selection-end-column="115" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/php/product/pro_branch.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/shop/php/product/pro_delete_done.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -370,52 +357,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shop/php/product/pro_edit_check.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="45" column="115" selection-start-line="45" selection-start-column="115" selection-end-line="45" selection-end-column="115" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/php/product/pro_edit_done.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="738">
-          <caret line="62" column="115" selection-start-line="62" selection-start-column="115" selection-end-line="62" selection-end-column="115" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/php/product/pro_list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="46" column="115" selection-start-line="46" selection-start-column="115" selection-end-line="46" selection-end-column="115" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shop/php/product/pro_delete.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1116">
           <caret line="62" column="115" selection-start-line="62" selection-start-column="115" selection-end-line="62" selection-end-column="115" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/php/staff_add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/php/staff_add_check.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="25" lean-forward="true" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/php/staff_add_done.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -447,30 +392,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shop/php/staff_edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/php/staff_edit_check.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/php/staff_edit_done.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shop/php/staff_list.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -492,6 +413,115 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/shop/php/staff_login/staff_login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="76" selection-start-line="19" selection-start-column="76" selection-end-line="19" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/php/product/pro_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="46" column="115" selection-start-line="46" selection-start-column="115" selection-end-line="46" selection-end-column="115" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/php/product/pro_branch.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/php/asobi/shun.html" />
+    <entry file="file://$PROJECT_DIR$/shop/php/staff_edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="57" column="45" selection-start-line="57" selection-start-column="45" selection-end-line="57" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/php/staff_edit_done.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/php/product/pro_add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="31" column="45" lean-forward="true" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/php/product/pro_add_check.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/php/product/pro_add_done.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/php/product/pro_edit_check.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-414">
+          <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/php/product/pro_edit_done.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="23" column="47" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/php/common_config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="21" column="64" selection-start-line="21" selection-start-column="64" selection-end-line="21" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/php/staff_add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/php/staff_add_check.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="972">
+          <caret line="54" column="20" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/php/staff_add_done.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="55" column="48" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/php/staff_edit_check.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/shop/php/staff_ng.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -501,15 +531,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shop/php/staff_login/staff_login_check.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop/php/staff_login/staff_login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="76" selection-start-line="19" selection-start-column="76" selection-end-line="19" selection-end-column="76" />
+        <state relative-caret-position="497">
+          <caret line="30" column="47" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
         </state>
       </provider>
     </entry>
