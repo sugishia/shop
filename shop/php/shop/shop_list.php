@@ -49,13 +49,17 @@ try {
 </head>
 <body>
 <div class="container">
-    <div style="clear: both; overflow: hidden; margin-top: 5px;"><span class="right" style="float: right; font-weight: bold;">ようこそ、<?= $member_name ?>様&nbsp;&nbsp;<button
-                    class="btn btn-primary btn-sm" type="button"
-                    onclick="location.href='<?= $location ?>'"><?= $login ?></button></span></div>
+    <div style="clear: both; overflow: hidden; margin-top: 5px;">
+        <span class="right" style="float: right; font-weight: bold;">
+            ようこそ、<?= $member_name ?>様&nbsp;&nbsp;
+            <button class="btn btn-primary btn-sm" type="button" onclick="location.href='<?= $location ?>'"><?= $login ?></button>
+            <button class="btn btn-primary btn-sm" type="button" onclick="location.href='./shop_cartlook.php'">ショッピングカートを見る</button>
+        </span>
+    </div>
     <div class="jumbotron h2">商品　登録・変更・削除</div>
     <p class="page-header h3">商品一覧</p>
 
-    <table class="table table-striped text-center" style="table-layout: fixed">
+    <table class="table table-striped text-center table-hover" style="table-layout: fixed">
         <thead>
         <tr>
             <th class="text-center">チェック</th>

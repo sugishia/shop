@@ -12,7 +12,6 @@ if (isset($_SESSION['member_login']) == false) {
     $location = './member_login.html';
     $member_name = 'ゲスト';
     $login = '会員ログイン';
-
 } else {
     $location = './member_logout.php';
     $member_name = $_SESSION['member_name'];
@@ -22,28 +21,23 @@ if (isset($_SESSION['member_login']) == false) {
 require_once '../common_config.php';
 
 try {
-    if (empty($_GET['procode'])) {
-        throw new Exception('不正なＩＤです。');
-    }
-
-    $pro_code = htmlspecialchars($_GET['procode'], ENT_QUOTES, 'utf-8');
+    $cart = $_SESSION['cart'];
+    $kazu = $_SESSION['kazu'];
 
     $dbh = new PDO($mysql, $user, $pass);
     $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $sql = 'SELECT name, price, picture FROM mst_product WHERE code = ?';
-    $stmt = $dbh->prepare($sql);
-    $stmt->bindValue(1, $pro_code, PDO::PARAM_INT);
-    $stmt->execute();
+    foreach ($cart as $key => $value) {
+        $sql = 'SELECT name, price, picture FROM mst_product WHERE code = ?';
+        $stmt = $dbh->prepare($sql);
+        $stmt->bindValue(1, $value, PDO::PARAM_INT);
+        $stmt->execute();
 
-    $result = $stmt->fetch(PDO::FETCH_ASSOC);
-    $pro_name = htmlspecialchars($result['name'], ENT_QUOTES, 'utf-8');
-    $pro_price = htmlspecialchars($result['price'], ENT_QUOTES, 'utf-8');
-    $pro_picture = $result['picture'];
-
-    if($pro_picture === ''){
-        $pro_picture = 'default.png';
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $pro_name[] = $result['name'];
+        $pro_price[] = $result['price'];
+        $pro_picture[] = $result['picture'];
     }
 
     $dbh = null;
@@ -62,41 +56,51 @@ try {
     <title></title>
     <link rel="stylesheet" href="../../bootstrap_lib/bootstrap.min.css">
     <style>
-        #thead th{
+        #thead th {
             text-align: center;
         }
-        #tbody td{
+
+        #tbody td {
             vertical-align: middle;
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <div style="clear: both; overflow: hidden; margin-top: 5px;"><span class="right" style="float: right; font-weight: bold;">ようこそ、<?= $member_name ?>様&nbsp;&nbsp;<button
-                    class="btn btn-primary btn-sm" type="button"
-                    onclick="location.href='<?= $location ?>'"><?= $login ?></button></span></div>
+    <div style="clear: both; overflow: hidden; margin-top: 5px;">
+        <span class="right" style="float: right; font-weight: bold;">ようこそ、<?= $member_name ?>様&nbsp;&nbsp;<button class="btn btn-primary btn-sm" type="button" onclick="location.href='<?= $location ?>'"><?= $login ?></button></span>
+    </div>
     <div class="jumbotron h2">商品　登録・変更・削除</div>
     <p class="page-header h3">商品詳細情報</p>
     <table style="table-layout: fixed" class="table table-striped text-center table-hover">
         <thead id="thead">
         <tr>
-            <th>商品コード</th>
             <th>商品</th>
-            <th>価格</th>
+            <th>単価</th>
             <th>写真</th>
-            <th></th>
+            <th>個数</th>
+            <th>金額</th>
+            <th>削除</th>
         </tr>
         </thead>
         <tbody id="tbody">
-        <tr>
-            <td><?= $pro_code ?></td>
-            <td><?= $pro_name ?></td>
-            <td><?= $pro_price ?></td>
-            <td><img style="border-radius: 50%; width: 40px; height: auto" src="../product//picture/<?= $pro_picture ?>"></td>
-            <td><button class="btn btn-primary btn-sm" type="button" onclick="location.href='./shop_cartin.php?procode=<?= $pro_code ?>'">カートに入れる</button></td>
-        </tr>
+        <form action="./kazu_change.php" method="post">
+            <?php for ($i = 0; $i < count($cart); $i++) { ?>
+                    <tr>
+                    <td><?=$pro_name[$i]?></td>
+                    <td><?=$pro_price[$i]?>円</td>
+                    <td><img style="border-radius: 50%; width: 40px; height: auto" src="../product/picture/<?=$pro_picture[$i]?>"></td>
+                    <td><input style="width: 20%;" type="number" name="kazu<?=$i?>" value="<?=$kazu[$i]?>">個</td>
+                    <td><?=$pro_price[$i] * $kazu[$i]?>円</td>
+                    <td><input type="checkbox" name="sakujo<?= $i ?>"></td>
+                    </tr>
+            <?php } ?>
+            <input type="hidden" name="max" value="<?= count($cart); ?>">
+
         </tbody>
     </table>
+    <button class="btn btn-primary" type="submit">数量変更</button>
+    </form>
     <button class="btn btn-primary" onclick="location.href='./shop_list.php'">戻る</button>
 </div>
 <script src="../../bootstrap_lib/jquery-3.2.1.min.js"></script>

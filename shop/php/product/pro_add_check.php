@@ -43,12 +43,12 @@ if ($pro_picture['size'] > 0) {
     <p class="page-header h3">商品追加</p>
     <p>下記の商品を登録します</p>
 
-    <table style="table-layout: fixed" class="table table-striped text-center">
+    <table style="table-layout: fixed" class="table table-striped text-center table-hover">
         <thead>
         <tr>
-            <th>商品名</th>
-            <th>値段</th>
-            <th>画像</th>
+            <th style="text-align: center">商品名</th>
+            <th style="text-align: center">値段</th>
+            <th style="text-align: center">画像</th>
         </tr>
         </thead>
         <tbody>
