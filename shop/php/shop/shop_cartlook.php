@@ -21,29 +21,35 @@ if (isset($_SESSION['member_login']) == false) {
 require_once '../common_config.php';
 
 try {
-    $cart = $_SESSION['cart'];
-    $kazu = $_SESSION['kazu'];
 
-    /*カートになにも入っていないときに、
-     * */
+    if(isset($_SESSION['cart'])==true) {
+        $cart = $_SESSION['cart'];
+        $kazu = $_SESSION['kazu'];
 
-    $dbh = new PDO($mysql, $user, $pass);
-    $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        /*カートになにも入っていないときに、
+         * */
+        $max = count($cart);
 
-    foreach ($cart as $key => $value) {
-        $sql = 'SELECT name, price, picture FROM mst_product WHERE code = ?';
-        $stmt = $dbh->prepare($sql);
-        $stmt->bindValue(1, $value, PDO::PARAM_INT);
-        $stmt->execute();
+        $dbh = new PDO($mysql, $user, $pass);
+        $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        $pro_name[] = $result['name'];
-        $pro_price[] = $result['price'];
-        $pro_picture[] = $result['picture'];
+        foreach ($cart as $key => $value) {
+            $sql = 'SELECT name, price, picture FROM mst_product WHERE code = ?';
+            $stmt = $dbh->prepare($sql);
+            $stmt->bindValue(1, $value, PDO::PARAM_INT);
+            $stmt->execute();
+
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            $pro_name[] = $result['name'];
+            $pro_price[] = $result['price'];
+            $pro_picture[] = $result['picture'];
+        }
+
+        $dbh = null;
+    }else{
+        $max = 0;
     }
-
-    $dbh = null;
 } catch (Exception $error) {
     echo 'ただいま障害により大変ご迷惑をおかけしております。<br>';
     echo htmlspecialchars($error->getMessage(), ENT_QUOTES, 'utf-8');
@@ -88,7 +94,7 @@ try {
         </thead>
         <tbody id="tbody">
         <form action="./kazu_change.php" method="post">
-            <?php for ($i = 0; $i < count($cart); $i++) { ?>
+            <?php for ($i = 0; $i < $max; $i++) { ?>
                 <tr>
                     <td><?=$pro_name[$i]?></td>
                     <td><?=$pro_price[$i]?>円</td>
@@ -98,7 +104,10 @@ try {
                     <td><input type="checkbox" name="sakujo<?= $i ?>"></td>
                 </tr>
             <?php } ?>
-            <input type="hidden" name="max" value="<?= count($cart); ?>">
+            <?php if($max == 0) {?>
+                <tr><td colspan="6" style="font-size: 1.5em; font-weight: bold; color: red; text-align: center">商品が入っていません。</td></tr>
+            <?php } ?>
+            <input type="hidden" name="max" value="<?= $max; ?>">
         </tbody>
     </table>
     <button class="btn btn-primary" type="submit">数量変更</button>

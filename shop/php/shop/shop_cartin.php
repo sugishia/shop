@@ -27,17 +27,26 @@ try {
         die();
     }
 
+    $pro_code = $_GET['procode'];
+
     if(!(empty($_SESSION['cart']))){
         $cart = $_SESSION['cart'];
         $kazu = $_SESSION['kazu'];
+
+        if(in_array($pro_code, $cart)==true){
+            //$kazu[]++;
+        }
     }
 
-    $pro_code = $_GET['procode'];
+
 
     $kazu[] = 1;
     $cart[] = $pro_code;
     $_SESSION['cart'] = $cart; //$_SESSION['cart']:カート内に入っているそれぞれの商品IDの配列
     $_SESSION['kazu'] = $kazu; //$_SESSION['kazu']:カート内に入っている商品のそれぞれの数量
+
+    var_dump($cart);
+    var_dump($kazu);
 
     $dbh = new PDO($mysql, $user, $pass);
     $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
@@ -100,7 +109,9 @@ try {
         </tr>
         </thead>
         <tbody id="tbody">
-        <tr><td><?= $result['name']; ?></td><td><?= $result['price']; ?></td><td><img src="../product/picture/<?= $result['picture'] ?>"></td></tr>
+        <tr>
+            <td><?= $result['name']; ?></td><td><?= $result['price']; ?></td><td><img src="../product/picture/<?= $result['picture'] ?>"></td>
+        </tr>
         </tbody>
     </table>
 
