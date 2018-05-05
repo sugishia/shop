@@ -33,10 +33,23 @@ try {
     }
 
     $pro_code = $_GET['procode'];
+
     $kazu[] = 1;
     $cart[] = $pro_code;
-    $_SESSION['cart'] = $cart;
-    $_SESSION['kazu'] = $kazu;
+    $_SESSION['cart'] = $cart; //$_SESSION['cart']:カート内に入っているそれぞれの商品IDの配列
+    $_SESSION['kazu'] = $kazu; //$_SESSION['kazu']:カート内に入っている商品のそれぞれの数量
+
+    $dbh = new PDO($mysql, $user, $pass);
+    $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $sql = 'SELECT name, price, picture FROM mst_product WHERE code = ?';
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindValue(1, $pro_code, PDO::PARAM_INT);
+    $stmt->execute();
+
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    $dbh = null;
 
 } catch (Exception $error) {
     echo 'ただいま障害により大変ご迷惑をおかけしております。<br>';
@@ -53,11 +66,21 @@ try {
     <title></title>
     <link rel="stylesheet" href="../../bootstrap_lib/bootstrap.min.css">
     <style>
+        table{
+            table-layout: fixed;
+        }
+
         #thead th{
             text-align: center;
         }
         #tbody td{
+            text-align: center;
             vertical-align: middle;
+        }
+        #tbody > tr img{
+            border-radius: 50%;
+            width: 40px;
+            height: auto;
         }
     </style>
 </head>
@@ -70,14 +93,14 @@ try {
     <p class="page-header h3">商品詳細情報</p>
 
     <p>下記をカートに追加しました。</p>
-    <table class="table table-striped table-bordered table-striped">
-        <thead>
+    <table class="table table-striped table-striped" style="table-layout: fixed">
+        <thead id="thead">
         <tr>
-            <th></th>
+            <th>商品名</th><th>単価</th><th>写真</th>
         </tr>
         </thead>
-        <tbody>
-        <tr><td></td></tr>
+        <tbody id="tbody">
+        <tr><td><?= $result['name']; ?></td><td><?= $result['price']; ?></td><td><img src="../product/picture/<?= $result['picture'] ?>"></td></tr>
         </tbody>
     </table>
 

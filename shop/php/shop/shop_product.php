@@ -42,9 +42,11 @@ try {
     $pro_price = htmlspecialchars($result['price'], ENT_QUOTES, 'utf-8');
     $pro_picture = $result['picture'];
 
+    /*
     if($pro_picture === ''){
         $pro_picture = 'default.png';
     }
+    */
 
     $dbh = null;
 } catch (Exception $error) {

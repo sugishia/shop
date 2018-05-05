@@ -24,6 +24,9 @@ try {
     $cart = $_SESSION['cart'];
     $kazu = $_SESSION['kazu'];
 
+    /*カートになにも入っていないときに、
+     * */
+
     $dbh = new PDO($mysql, $user, $pass);
     $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -86,17 +89,16 @@ try {
         <tbody id="tbody">
         <form action="./kazu_change.php" method="post">
             <?php for ($i = 0; $i < count($cart); $i++) { ?>
-                    <tr>
+                <tr>
                     <td><?=$pro_name[$i]?></td>
                     <td><?=$pro_price[$i]?>円</td>
                     <td><img style="border-radius: 50%; width: 40px; height: auto" src="../product/picture/<?=$pro_picture[$i]?>"></td>
                     <td><input style="width: 20%;" type="number" name="kazu<?=$i?>" value="<?=$kazu[$i]?>">個</td>
                     <td><?=$pro_price[$i] * $kazu[$i]?>円</td>
                     <td><input type="checkbox" name="sakujo<?= $i ?>"></td>
-                    </tr>
+                </tr>
             <?php } ?>
             <input type="hidden" name="max" value="<?= count($cart); ?>">
-
         </tbody>
     </table>
     <button class="btn btn-primary" type="submit">数量変更</button>
